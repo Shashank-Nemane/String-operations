@@ -29,10 +29,10 @@ int stringcompare(char a[], char b[]) {
     int i = 0;
     while (a[i] != '\0' || b[i] != '\0') {
         if (a[i] != b[i])
-            return 0;
+            return 1;
         i++;
     }
-    return 1;
+    return 0;
 }
 
 void clearBuffer()
@@ -94,7 +94,7 @@ password_again:
         c--;
     }
 
-    if (!stringcompare(password, confirm)) {
+    if (stringcompare(password, confirm)) {
         printf("Passwords do not match.\n");
         goto password_again;
     }
